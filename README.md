@@ -1,48 +1,11 @@
 # Manager-Restaurante
-
-Un sistema web para la gestión integral de un restaurante/bar, construido en PHP y MySQL, con roles diferenciados (gerente, mesero, cocina) y una interfaz moderna basada en Tailwind CSS y animaciones con GSAP y Chart.js.
-📂 Estructura del Proyecto
-Manager-Restaurante/
-├── components/
-│   ├── header.php
-│   └── footer.php
-├── config/
-│   └── db.php
-├── gerente/
-│   ├── dashboard.php
-│   ├── menu.php
-│   ├── create_menu.php
-│   └── edit_menu.php
-├── mesero/
-│   ├── ordenes.php
-│   ├── create_order.php
-│   ├── edit_order.php
-├── cocina/
-│   ├── ordenes-activas.php
-│   ├── update_order_status.php
-├── assets/
-│   ├── css/
-│   │   └── tailwind.css
-│   └── js/
-│       ├── main.js
-│       ├── mesero.js
-│       ├── gerente.js
-│       └── cocina.js
-├── index.php
-├── login.php
-├── logout.php
-├── register.php
-├── README.md
-└── restaurante_db.sql
 🚀 Instalación y Configuración
-
     Clona el repositorio dentro de la carpeta de tu servidor local:
 
 cd C:\xampp\htdocs
 git clone https://github.com/RothDai/Manager-Restaurante.git
 
     Importa la base de datos usando phpMyAdmin o tu herramienta favorita. Usa restaurante_db.sql.
-
     Configura config/db.php según tus credenciales:
 
 $host = '127.0.0.1';
