@@ -1,0 +1,52 @@
+[
+  {
+    "orden_id": 1,
+    "modificadores": "Modificador 1",
+    "plato_id": 2
+  },
+  {
+    "orden_id": 2,
+    "modificadores": "Modificador 2",
+    "plato_id": 3
+  },
+  {
+    "orden_id": 3,
+    "modificadores": "Modificador 3",
+    "plato_id": 4
+  },
+  {
+    "orden_id": 4,
+    "modificadores": "Modificador 4",
+    "plato_id": 5
+  },
+  {
+    "orden_id": 5,
+    "modificadores": "Modificador 5",
+    "plato_id": 6
+  },
+  {
+    "orden_id": 6,
+    "modificadores": "Modificador 6",
+    "plato_id": 7
+  },
+  {
+    "orden_id": 7,
+    "modificadores": "Modificador 7",
+    "plato_id": 8
+  },
+  {
+    "orden_id": 8,
+    "modificadores": "Modificador 8",
+    "plato_id": 9
+  },
+  {
+    "orden_id": 9,
+    "modificadores": "Modificador 9",
+    "plato_id": 10
+  },
+  {
+    "orden_id": 10,
+    "modificadores": "Modificador 10",
+    "plato_id": 1
+  }
+]

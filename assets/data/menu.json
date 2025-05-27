@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nombre": "Plato 1",
+    "activo": true,
+    "precio": 55
+  },
+  {
+    "id": 2,
+    "nombre": "Plato 2",
+    "activo": true,
+    "precio": 60
+  },
+  {
+    "id": 3,
+    "nombre": "Plato 3",
+    "activo": true,
+    "precio": 65
+  },
+  {
+    "id": 4,
+    "nombre": "Plato 4",
+    "activo": true,
+    "precio": 70
+  },
+  {
+    "id": 5,
+    "nombre": "Plato 5",
+    "activo": true,
+    "precio": 75
+  },
+  {
+    "id": 6,
+    "nombre": "Plato 6",
+    "activo": true,
+    "precio": 80
+  },
+  {
+    "id": 7,
+    "nombre": "Plato 7",
+    "activo": true,
+    "precio": 85
+  },
+  {
+    "id": 8,
+    "nombre": "Plato 8",
+    "activo": true,
+    "precio": 90
+  },
+  {
+    "id": 9,
+    "nombre": "Plato 9",
+    "activo": true,
+    "precio": 95
+  },
+  {
+    "id": 10,
+    "nombre": "Plato 10",
+    "activo": true,
+    "precio": 100
+  }
+]

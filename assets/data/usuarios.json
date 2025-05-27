@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nombre": "Usuario 1",
+    "rol": "mesero",
+    "fecha_registro": "2025-01-01"
+  },
+  {
+    "id": 2,
+    "nombre": "Usuario 2",
+    "rol": "cocina",
+    "fecha_registro": "2025-01-02"
+  },
+  {
+    "id": 3,
+    "nombre": "Usuario 3",
+    "rol": "gerente",
+    "fecha_registro": "2025-01-03"
+  },
+  {
+    "id": 4,
+    "nombre": "Usuario 4",
+    "rol": "mesero",
+    "fecha_registro": "2025-01-04"
+  },
+  {
+    "id": 5,
+    "nombre": "Usuario 5",
+    "rol": "cocina",
+    "fecha_registro": "2025-01-05"
+  },
+  {
+    "id": 6,
+    "nombre": "Usuario 6",
+    "rol": "gerente",
+    "fecha_registro": "2025-01-06"
+  },
+  {
+    "id": 7,
+    "nombre": "Usuario 7",
+    "rol": "mesero",
+    "fecha_registro": "2025-01-07"
+  },
+  {
+    "id": 8,
+    "nombre": "Usuario 8",
+    "rol": "cocina",
+    "fecha_registro": "2025-01-08"
+  },
+  {
+    "id": 9,
+    "nombre": "Usuario 9",
+    "rol": "gerente",
+    "fecha_registro": "2025-01-09"
+  },
+  {
+    "id": 10,
+    "nombre": "Usuario 10",
+    "rol": "mesero",
+    "fecha_registro": "2025-01-10"
+  }
+]

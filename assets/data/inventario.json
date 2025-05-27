@@ -1,0 +1,52 @@
+[
+  {
+    "nombre_ingrediente": "Ingrediente 1",
+    "cantidad": 95,
+    "umbral_minimo": 20
+  },
+  {
+    "nombre_ingrediente": "Ingrediente 2",
+    "cantidad": 90,
+    "umbral_minimo": 20
+  },
+  {
+    "nombre_ingrediente": "Ingrediente 3",
+    "cantidad": 85,
+    "umbral_minimo": 20
+  },
+  {
+    "nombre_ingrediente": "Ingrediente 4",
+    "cantidad": 80,
+    "umbral_minimo": 20
+  },
+  {
+    "nombre_ingrediente": "Ingrediente 5",
+    "cantidad": 75,
+    "umbral_minimo": 20
+  },
+  {
+    "nombre_ingrediente": "Ingrediente 6",
+    "cantidad": 70,
+    "umbral_minimo": 20
+  },
+  {
+    "nombre_ingrediente": "Ingrediente 7",
+    "cantidad": 65,
+    "umbral_minimo": 20
+  },
+  {
+    "nombre_ingrediente": "Ingrediente 8",
+    "cantidad": 60,
+    "umbral_minimo": 20
+  },
+  {
+    "nombre_ingrediente": "Ingrediente 9",
+    "cantidad": 55,
+    "umbral_minimo": 20
+  },
+  {
+    "nombre_ingrediente": "Ingrediente 10",
+    "cantidad": 50,
+    "umbral_minimo": 20
+  }
+]

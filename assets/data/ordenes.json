@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "total": 110,
+    "fecha_hora_inicio": "2025-05-01 12:00:00",
+    "canal": "entrega",
+    "estado": "pendiente"
+  },
+  {
+    "id": 2,
+    "total": 120,
+    "fecha_hora_inicio": "2025-05-02 12:00:00",
+    "canal": "local",
+    "estado": "pendiente"
+  },
+  {
+    "id": 3,
+    "total": 130,
+    "fecha_hora_inicio": "2025-05-03 12:00:00",
+    "canal": "entrega",
+    "estado": "pendiente"
+  },
+  {
+    "id": 4,
+    "total": 140,
+    "fecha_hora_inicio": "2025-05-04 12:00:00",
+    "canal": "local",
+    "estado": "pendiente"
+  },
+  {
+    "id": 5,
+    "total": 150,
+    "fecha_hora_inicio": "2025-05-05 12:00:00",
+    "canal": "entrega",
+    "estado": "pendiente"
+  },
+  {
+    "id": 6,
+    "total": 160,
+    "fecha_hora_inicio": "2025-05-06 12:00:00",
+    "canal": "local",
+    "estado": "pendiente"
+  },
+  {
+    "id": 7,
+    "total": 170,
+    "fecha_hora_inicio": "2025-05-07 12:00:00",
+    "canal": "entrega",
+    "estado": "pendiente"
+  },
+  {
+    "id": 8,
+    "total": 180,
+    "fecha_hora_inicio": "2025-05-08 12:00:00",
+    "canal": "local",
+    "estado": "pendiente"
+  },
+  {
+    "id": 9,
+    "total": 190,
+    "fecha_hora_inicio": "2025-05-09 12:00:00",
+    "canal": "entrega",
+    "estado": "pendiente"
+  },
+  {
+    "id": 10,
+    "total": 200,
+    "fecha_hora_inicio": "2025-05-10 12:00:00",
+    "canal": "local",
+    "estado": "pendiente"
+  }
+]
