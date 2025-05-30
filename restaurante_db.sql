@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 26, 2025 at 09:01 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 30-05-2025 a las 23:10:43
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,15 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `restaurante_db`
--- Crear y seleccionar la base de datos
-CREATE DATABASE IF NOT EXISTS `restaurante_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `restaurante_db`;
+-- Base de datos: `restaurante_db`
+--
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detalle_orden`
+-- Estructura de tabla para la tabla `detalle_orden`
 --
 
 CREATE TABLE `detalle_orden` (
@@ -39,7 +37,7 @@ CREATE TABLE `detalle_orden` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `detalle_orden`
+-- Volcado de datos para la tabla `detalle_orden`
 --
 
 INSERT INTO `detalle_orden` (`id`, `orden_id`, `menu_id`, `cantidad`, `modificadores`, `notas`) VALUES
@@ -81,7 +79,7 @@ INSERT INTO `detalle_orden` (`id`, `orden_id`, `menu_id`, `cantidad`, `modificad
 -- --------------------------------------------------------
 
 --
--- Table structure for table `eventos_simulaciones`
+-- Estructura de tabla para la tabla `eventos_simulaciones`
 --
 
 CREATE TABLE `eventos_simulaciones` (
@@ -97,7 +95,7 @@ CREATE TABLE `eventos_simulaciones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `eventos_simulaciones`
+-- Volcado de datos para la tabla `eventos_simulaciones`
 --
 
 INSERT INTO `eventos_simulaciones` (`id`, `tipo`, `nombre`, `fecha`, `menu_especial`, `recursos_asignados`, `parametros_simulacion`, `resultado_simulacion`, `usuario_id`) VALUES
@@ -107,7 +105,7 @@ INSERT INTO `eventos_simulaciones` (`id`, `tipo`, `nombre`, `fecha`, `menu_espec
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inventario`
+-- Estructura de tabla para la tabla `inventario`
 --
 
 CREATE TABLE `inventario` (
@@ -124,7 +122,7 @@ CREATE TABLE `inventario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `inventario`
+-- Volcado de datos para la tabla `inventario`
 --
 
 INSERT INTO `inventario` (`id`, `nombre_ingrediente`, `cantidad`, `unidad`, `umbral_minimo`, `proveedor`, `fecha_ultima_reposicion`, `desperdicio_cantidad`, `desperdicio_causa`, `usuario_reporta_id`) VALUES
@@ -152,35 +150,10 @@ INSERT INTO `inventario` (`id`, `nombre_ingrediente`, `cantidad`, `unidad`, `umb
 (22, 'Cerveza IPA (Lúpulo)', 50.00, 'litros', 15.00, 'Cervecería Artesanal La Cumbre', '2025-05-08', 0.00, NULL, 9),
 (23, 'Uvas Tinto', 25.00, 'kg', 10.00, 'Viñedos del Valle', '2025-05-02', 0.00, NULL, 8),
 (24, 'Agua Mineral', 100.00, 'litros', 50.00, 'Aguas Cristalinas S.A.', '2025-05-22', 0.00, NULL, 9),
-(25, 'Mantequilla', 10.00, 'kg', 2.00, 'Lácteos La Pradera', '2025-05-21', 0.00, NULL, 8),
-(26, 'Aguacate Hass', 25.00, 'kg', 5.00, 'Proveedor Frutas Verdes S.A.', '2025-05-20', 0.00, NULL, 8),
-(27, 'Tomate Saladette', 40.00, 'kg', 10.00, 'Agrícola El Campo', '2025-05-15', 0.00, NULL, 8),
-(28, 'Cebolla Morada', 30.00, 'kg', 8.00, 'Verduras La Huerta', '2025-05-18', 0.00, NULL, 9),
-(29, 'Cilantro', 10.00, 'kg', 2.00, 'Herbales Frescos S.A.', '2025-05-19', 0.00, NULL, 9),
-(30, 'Limón Verde', 50.00, 'kg', 12.00, 'Cítricos del Bajío', '2025-05-10', 0.00, NULL, 8),
-(31, 'Tortilla de Maíz', 200.00, 'unidades', 50.00, 'Tortillas Don José', '2025-05-22', 0.00, NULL, 9),
-(32, 'Queso Oaxaca', 15.00, 'kg', 5.00, 'Lácteos La Pradera', '2025-05-20', 0.00, NULL, 8),
-(33, 'Chorizo Artesanal', 10.00, 'kg', 3.00, 'Carnes Selectas S.A.', '2025-05-18', 0.00, NULL, 9),
-(34, 'Calamar Fresco', 8.00, 'kg', 2.00, 'Mariscos del Pacífico', '2025-05-16', 0.00, NULL, 8),
-(35, 'Harina de Trigo', 50.00, 'kg', 15.00, 'Molinos Modernos', '2025-05-12', 0.00, NULL, 9),
-(36, 'Setas Mixtas', 12.00, 'kg', 4.00, 'Hongos Gourmet S.A.', '2025-05-17', 0.00, NULL, 8),
-(37, 'Pan Brioche', 100.00, 'unidades', 30.00, 'Panadería Tradicional', '2025-05-23', 0.00, NULL, 9),
-(38, 'Pasta Fettuccine', 25.00, 'kg', 6.00, 'Pastas del Valle', '2025-05-15', 0.00, NULL, 8),
-(39, 'Pechuga de Pollo', 20.00, 'kg', 5.00, 'Avícola La Granja', '2025-05-19', 0.00, NULL, 9),
-(40, 'Arroz Arborio', 10.00, 'kg', 3.00, 'Granos Selectos', '2025-05-14', 0.00, NULL, 8),
-(41, 'Chocolate Semiamargo', 5.00, 'kg', 1.00, 'Cacao Real S.A.', '2025-05-11', 0.00, NULL, 9),
-(42, 'Leche Entera', 30.00, 'litros', 10.00, 'Lácteos La Pradera', '2025-05-18', 0.00, NULL, 8),
-(43, 'Crema Espesa', 15.00, 'litros', 5.00, 'Lácteos El Valle', '2025-05-20', 0.00, NULL, 9),
-(44, 'Ron Blanco', 10.00, 'litros', 3.00, 'Destilería Caribeña', '2025-05-05', 0.00, NULL, 8),
-(45, 'Jugo de Piña', 20.00, 'litros', 8.00, 'Jugos Tropicales S.A.', '2025-05-10', 0.00, NULL, 9),
-(46, 'Hojas de Hierbabuena', 5.00, 'kg', 1.00, 'Herbales Frescos S.A.', '2025-05-19', 0.00, NULL, 8),
-(47, 'Cerveza IPA (Lúpulo)', 50.00, 'litros', 15.00, 'Cervecería Artesanal La Cumbre', '2025-05-08', 0.00, NULL, 9),
-(48, 'Uvas Tinto', 25.00, 'kg', 10.00, 'Viñedos del Valle', '2025-05-02', 0.00, NULL, 8),
-(49, 'Agua Mineral', 100.00, 'litros', 50.00, 'Aguas Cristalinas S.A.', '2025-05-22', 0.00, NULL, 9),
-(50, 'Mantequilla', 10.00, 'kg', 2.00, 'Lácteos La Pradera', '2025-05-21', 0.00, NULL, 8);
+(25, 'Mantequilla', 10.00, 'kg', 2.00, 'Lácteos La Pradera', '2025-05-21', 0.00, NULL, 8);
 
 --
--- Triggers `inventario`
+-- Disparadores `inventario`
 --
 DELIMITER $$
 CREATE TRIGGER `trigger_stock_bajo` AFTER UPDATE ON `inventario` FOR EACH ROW BEGIN
@@ -199,7 +172,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mantenimiento_alertas`
+-- Estructura de tabla para la tabla `mantenimiento_alertas`
 --
 
 CREATE TABLE `mantenimiento_alertas` (
@@ -217,7 +190,7 @@ CREATE TABLE `mantenimiento_alertas` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu`
+-- Estructura de tabla para la tabla `menu`
 --
 
 CREATE TABLE `menu` (
@@ -234,7 +207,7 @@ CREATE TABLE `menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `menu`
+-- Volcado de datos para la tabla `menu`
 --
 
 INSERT INTO `menu` (`id`, `nombre`, `descripcion`, `categoria`, `precio_local`, `precio_entrega`, `precio_takeaway`, `alergenos`, `food_cost`, `activo`) VALUES
@@ -286,7 +259,7 @@ INSERT INTO `menu` (`id`, `nombre`, `descripcion`, `categoria`, `precio_local`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mesas`
+-- Estructura de tabla para la tabla `mesas`
 --
 
 CREATE TABLE `mesas` (
@@ -298,7 +271,7 @@ CREATE TABLE `mesas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `mesas`
+-- Volcado de datos para la tabla `mesas`
 --
 
 INSERT INTO `mesas` (`id`, `numero`, `capacidad`, `estado`, `ubicacion`) VALUES
@@ -316,7 +289,7 @@ INSERT INTO `mesas` (`id`, `numero`, `capacidad`, `estado`, `ubicacion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ordenes`
+-- Estructura de tabla para la tabla `ordenes`
 --
 
 CREATE TABLE `ordenes` (
@@ -336,12 +309,12 @@ CREATE TABLE `ordenes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ordenes`
+-- Volcado de datos para la tabla `ordenes`
 --
 
 INSERT INTO `ordenes` (`id`, `mesa_id`, `usuario_id`, `canal`, `estado`, `total`, `fecha_hora_inicio`, `fecha_hora_finalizacion`, `tiempo_estimado_preparacion`, `tiempo_real_preparacion`, `tiempo_estimado_entrega`, `tiempo_real_entrega`, `calidad_revision`) VALUES
 (1, 4, 3, 'local', 'completada', 385.00, '2025-05-20 13:15:00', '2025-05-20 13:45:00', 30, 28, NULL, NULL, 1),
-(2, NULL, 4, 'entrega', 'en_proceso', 250.00, '2025-05-20 13:30:00', NULL, NULL, NULL, 45, 50, 0),
+(2, NULL, 4, 'entrega', 'completada', 250.00, '2025-05-20 13:30:00', NULL, NULL, NULL, 45, 50, 0),
 (3, NULL, 5, 'takeaway', 'pendiente', 180.00, '2025-05-20 14:00:00', NULL, NULL, NULL, NULL, NULL, 0),
 (4, 8, 6, 'local', 'completada', 520.00, '2025-05-20 14:20:00', '2025-05-20 15:10:00', 50, 55, NULL, NULL, 1),
 (5, 5, 3, 'local', 'en_proceso', 305.00, '2025-05-20 14:45:00', NULL, 35, NULL, NULL, NULL, 0),
@@ -351,7 +324,7 @@ INSERT INTO `ordenes` (`id`, `mesa_id`, `usuario_id`, `canal`, `estado`, `total`
 (9, NULL, 5, 'takeaway', 'completada', 340.00, '2025-05-19 19:30:00', '2025-05-19 20:00:00', NULL, NULL, NULL, NULL, 1),
 (10, NULL, 4, 'entrega', 'cancelada', 0.00, '2025-05-19 20:15:00', '2025-05-19 20:20:00', NULL, NULL, 20, NULL, 0),
 (11, 4, 3, 'local', 'completada', 385.00, '2025-05-20 13:15:00', '2025-05-20 13:45:00', 30, 28, NULL, NULL, 1),
-(12, NULL, 4, 'entrega', 'en_proceso', 250.00, '2025-05-20 13:30:00', NULL, NULL, NULL, 45, 50, 0),
+(12, NULL, 4, 'takeaway', 'cancelada', 250.00, '2025-05-20 13:30:00', NULL, NULL, NULL, 45, 50, 0),
 (13, NULL, 5, 'takeaway', 'pendiente', 180.00, '2025-05-20 14:00:00', NULL, NULL, NULL, NULL, NULL, 0),
 (14, 8, 6, 'local', 'completada', 520.00, '2025-05-20 14:20:00', '2025-05-20 15:10:00', 50, 55, NULL, NULL, 1),
 (15, 5, 3, 'local', 'en_proceso', 305.00, '2025-05-20 14:45:00', NULL, 35, NULL, NULL, NULL, 0),
@@ -362,7 +335,7 @@ INSERT INTO `ordenes` (`id`, `mesa_id`, `usuario_id`, `canal`, `estado`, `total`
 (20, NULL, 4, 'entrega', 'cancelada', 0.00, '2025-05-19 20:15:00', '2025-05-19 20:20:00', NULL, NULL, 20, NULL, 0);
 
 --
--- Triggers `ordenes`
+-- Disparadores `ordenes`
 --
 DELIMITER $$
 CREATE TRIGGER `trigger_exceso_tiempo` AFTER UPDATE ON `ordenes` FOR EACH ROW BEGIN
@@ -381,7 +354,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -397,7 +370,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `contrasena_hash`, `rol`, `rfid_token`, `puntos_lealtad`, `tasa_upselling`, `fecha_registro`) VALUES
@@ -412,11 +385,11 @@ INSERT INTO `usuarios` (`id`, `nombre`, `email`, `contrasena_hash`, `rol`, `rfid
 (13, 'cocina1', 'coci@coci.com', '$2y$10$CFqb5v9oCoQx.OP/CCgCier740rApPbMcIkLmkT2ukp2pT8j3vICa', 'cocina', NULL, 0, 0.00, '2025-05-26 00:58:43');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `detalle_orden`
+-- Indices de la tabla `detalle_orden`
 --
 ALTER TABLE `detalle_orden`
   ADD PRIMARY KEY (`id`),
@@ -424,7 +397,7 @@ ALTER TABLE `detalle_orden`
   ADD KEY `menu_id` (`menu_id`);
 
 --
--- Indexes for table `eventos_simulaciones`
+-- Indices de la tabla `eventos_simulaciones`
 --
 ALTER TABLE `eventos_simulaciones`
   ADD PRIMARY KEY (`id`),
@@ -432,7 +405,7 @@ ALTER TABLE `eventos_simulaciones`
   ADD KEY `idx_eventos_fecha` (`fecha`);
 
 --
--- Indexes for table `inventario`
+-- Indices de la tabla `inventario`
 --
 ALTER TABLE `inventario`
   ADD PRIMARY KEY (`id`),
@@ -440,28 +413,28 @@ ALTER TABLE `inventario`
   ADD KEY `idx_inventario_nombre` (`nombre_ingrediente`);
 
 --
--- Indexes for table `mantenimiento_alertas`
+-- Indices de la tabla `mantenimiento_alertas`
 --
 ALTER TABLE `mantenimiento_alertas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `usuario_asignado_id` (`usuario_asignado_id`);
 
 --
--- Indexes for table `menu`
+-- Indices de la tabla `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_menu_categoria` (`categoria`);
 
 --
--- Indexes for table `mesas`
+-- Indices de la tabla `mesas`
 --
 ALTER TABLE `mesas`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `numero` (`numero`);
 
 --
--- Indexes for table `ordenes`
+-- Indices de la tabla `ordenes`
 --
 ALTER TABLE `ordenes`
   ADD PRIMARY KEY (`id`),
@@ -470,7 +443,7 @@ ALTER TABLE `ordenes`
   ADD KEY `idx_ordenes_estado` (`estado`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`),
@@ -478,88 +451,88 @@ ALTER TABLE `usuarios`
   ADD UNIQUE KEY `rfid_token` (`rfid_token`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `detalle_orden`
+-- AUTO_INCREMENT de la tabla `detalle_orden`
 --
 ALTER TABLE `detalle_orden`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT for table `eventos_simulaciones`
+-- AUTO_INCREMENT de la tabla `eventos_simulaciones`
 --
 ALTER TABLE `eventos_simulaciones`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `inventario`
+-- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT for table `mantenimiento_alertas`
+-- AUTO_INCREMENT de la tabla `mantenimiento_alertas`
 --
 ALTER TABLE `mantenimiento_alertas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `menu`
+-- AUTO_INCREMENT de la tabla `menu`
 --
 ALTER TABLE `menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT for table `mesas`
+-- AUTO_INCREMENT de la tabla `mesas`
 --
 ALTER TABLE `mesas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `ordenes`
+-- AUTO_INCREMENT de la tabla `ordenes`
 --
 ALTER TABLE `ordenes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `detalle_orden`
+-- Filtros para la tabla `detalle_orden`
 --
 ALTER TABLE `detalle_orden`
   ADD CONSTRAINT `detalle_orden_ibfk_1` FOREIGN KEY (`orden_id`) REFERENCES `ordenes` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `detalle_orden_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `menu` (`id`);
 
 --
--- Constraints for table `eventos_simulaciones`
+-- Filtros para la tabla `eventos_simulaciones`
 --
 ALTER TABLE `eventos_simulaciones`
   ADD CONSTRAINT `eventos_simulaciones_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
 
 --
--- Constraints for table `inventario`
+-- Filtros para la tabla `inventario`
 --
 ALTER TABLE `inventario`
   ADD CONSTRAINT `inventario_ibfk_1` FOREIGN KEY (`usuario_reporta_id`) REFERENCES `usuarios` (`id`);
 
 --
--- Constraints for table `mantenimiento_alertas`
+-- Filtros para la tabla `mantenimiento_alertas`
 --
 ALTER TABLE `mantenimiento_alertas`
   ADD CONSTRAINT `mantenimiento_alertas_ibfk_1` FOREIGN KEY (`usuario_asignado_id`) REFERENCES `usuarios` (`id`);
 
 --
--- Constraints for table `ordenes`
+-- Filtros para la tabla `ordenes`
 --
 ALTER TABLE `ordenes`
   ADD CONSTRAINT `ordenes_ibfk_1` FOREIGN KEY (`mesa_id`) REFERENCES `mesas` (`id`),
