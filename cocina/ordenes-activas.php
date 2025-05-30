@@ -26,14 +26,13 @@ include '../config/db.php';
     <section id="cola-produccion" class="bg-white rounded-lg shadow p-6 animate-fade-in-up">
       <h2 class="text-2xl font-semibold mb-4">Cola de Producción</h2>
       <?php
+        // Quitamos los campos de tiempo_estimado_preparacion y tiempo_real_preparacion
         $ordenes = $pdo->query("
           SELECT o.id,
                  o.estado,
                  o.canal,
                  m.numero AS mesa_numero,
-                 DATE_FORMAT(o.fecha_hora_inicio, '%d/%m/%Y %H:%i') AS inicio,
-                 o.tiempo_estimado_preparacion,
-                 o.tiempo_real_preparacion
+                 DATE_FORMAT(o.fecha_hora_inicio, '%d/%m/%Y %H:%i') AS inicio
           FROM ordenes o
           LEFT JOIN mesas m ON o.mesa_id = m.id
           WHERE o.estado IN ('pendiente', 'en_proceso')
@@ -61,18 +60,6 @@ include '../config/db.php';
                   <span class="font-medium">Estado:</span>
                   <?= ucfirst(str_replace('_', ' ', htmlspecialchars($ord['estado']))) ?>
                 </p>
-                <p class="mt-1 text-sm">
-                  <span class="font-medium">Estimado Prep.:</span>
-                  <?= $ord['tiempo_estimado_preparacion'] !== null
-                      ? htmlspecialchars($ord['tiempo_estimado_preparacion']) . ' min'
-                      : '—' ?>
-                </p>
-                <?php if ($ord['tiempo_real_preparacion'] !== null): ?>
-                  <p class="mt-1 text-sm">
-                    <span class="font-medium">Real Prep.:</span>
-                    <?= htmlspecialchars($ord['tiempo_real_preparacion']) . ' min' ?>
-                  </p>
-                <?php endif; ?>
               </div>
               <div class="mt-4 sm:mt-0">
                 <a href="update_order_status.php?id=<?= $ord['id'] ?>"

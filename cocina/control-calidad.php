@@ -25,19 +25,23 @@ include '../config/db.php';
   <main class="max-w-4xl mx-auto p-6">
     <section id="control-calidad" class="bg-white rounded-lg shadow p-6 animate-fade-in-up">
       <h2 class="text-2xl font-semibold mb-4">Control de Calidad de Órdenes</h2>
+
       <?php
+        // Ahora usamos fecha_hora_inicio en lugar de fecha_hora_termino
         $ordenesQC = $pdo->query("
-          SELECT o.id,
-                 o.mesa_id,
-                 m.numero AS mesa_numero,
-                 DATE_FORMAT(o.fecha_hora_termino, '%d/%m/%Y %H:%i') AS terminado
+          SELECT
+            o.id,
+            o.mesa_id,
+            m.numero AS mesa_numero,
+            DATE_FORMAT(o.fecha_hora_inicio, '%d/%m/%Y %H:%i') AS terminado
           FROM ordenes o
           LEFT JOIN mesas m ON o.mesa_id = m.id
           WHERE o.estado = 'completada'
             AND (o.calidad_revision = 0 OR o.calidad_revision IS NULL)
-          ORDER BY o.fecha_hora_termino DESC
+          ORDER BY o.fecha_hora_inicio DESC
         ")->fetchAll(PDO::FETCH_ASSOC);
       ?>
+
       <?php if (empty($ordenesQC)): ?>
         <p class="text-gray-500">No hay órdenes pendientes de control de calidad.</p>
       <?php else: ?>
@@ -52,7 +56,7 @@ include '../config/db.php';
                   <?php endif; ?>
                 </p>
                 <p class="mt-1 text-sm text-gray-600">
-                  Terminada: <?= htmlspecialchars($q['terminado']) ?>
+                  Creada: <?= htmlspecialchars($q['terminado']) ?>
                 </p>
               </div>
               <div class="mt-4 sm:mt-0">
@@ -70,8 +74,9 @@ include '../config/db.php';
       <?php endif; ?>
 
       <?php
+        // Procesamos el POST para marcar la orden como revisada
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['revisar'])) {
-          $idQC = $_POST['id'];
+          $idQC = intval($_POST['id']);
           $stmtUpd = $pdo->prepare("UPDATE ordenes SET calidad_revision = 1 WHERE id = ?");
           $stmtUpd->execute([$idQC]);
           header('Location: control-calidad.php');
