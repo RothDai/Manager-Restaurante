@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 (float)$food_cost,
                 $activo
             ]);
-            header('Location: menu.php');
+            header('Location: /gerente/menu.php');
             exit;
         } catch (Exception $e) {
             $errors[] = 'Error al insertar en base de datos: ' . $e->getMessage();
@@ -78,7 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Crear Platillo - Gerente</title>
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 text-gray-800 pt-16">
@@ -219,7 +218,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Guardar Platillo
           </button>
           <a
-            href="menu.php"
+            href="/gerente/menu.php"
             class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
           >
             Cancelar

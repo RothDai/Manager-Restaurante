@@ -9,7 +9,29 @@ if (!isset($_SESSION['id']) || $_SESSION['rol'] !== 'gerente') {
 
 require '../config/db.php';
 
-// Obtener todos los platillos del menú
+$errors = [];
+$success = '';
+
+// Procesamiento de formulario: eliminar platillo
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'delete') {
+    $idToDelete = intval($_POST['id'] ?? 0);
+    if ($idToDelete > 0) {
+        // Verificar existencia antes de borrar
+        $stmtCheck = $pdo->prepare("SELECT COUNT(*) FROM menu WHERE id = ?");
+        $stmtCheck->execute([$idToDelete]);
+        if ($stmtCheck->fetchColumn() > 0) {
+            $stmtDel = $pdo->prepare("DELETE FROM menu WHERE id = ?");
+            $stmtDel->execute([$idToDelete]);
+            $success = "Platillo eliminado satisfactoriamente.";
+        } else {
+            $errors[] = "No se encontró el platillo especificado.";
+        }
+    } else {
+        $errors[] = "ID de platillo inválido.";
+    }
+}
+
+// Obtener todos los platillos del menú (agrupando por id para evitar duplicados)
 $platillos = $pdo->query("
     SELECT 
       id,
@@ -23,6 +45,7 @@ $platillos = $pdo->query("
       food_cost,
       activo
     FROM menu
+    GROUP BY id
     ORDER BY nombre ASC
 ")->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -32,18 +55,33 @@ $platillos = $pdo->query("
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gestión de Menú - Gerente</title>
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- GSAP (opcional para animaciones) -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-800 pt-16">
   <?php include '../components/header.php'; ?>
 
   <main class="max-w-7xl mx-auto p-6 space-y-6">
+    <!-- Mensajes de éxito o error -->
+    <?php if ($success): ?>
+      <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+        <?= htmlspecialchars($success) ?>
+      </div>
+    <?php endif; ?>
+    <?php if (!empty($errors)): ?>
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+        <ul class="list-disc pl-5">
+          <?php foreach ($errors as $err): ?>
+            <li><?= htmlspecialchars($err) ?></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+    <?php endif; ?>
+
     <div class="flex justify-between items-center">
       <h2 class="text-2xl font-semibold">Gestión de Menú</h2>
-      <a href="create_menu.php" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+      <a href="/gerente/create_menu.php" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
         + Crear Nuevo Platillo
       </a>
     </div>
@@ -84,11 +122,22 @@ $platillos = $pdo->query("
                       <span class="text-red-600 font-medium">No</span>
                     <?php endif; ?>
                   </td>
-                  <td class="px-4 py-3 text-sm">
-                    <a href="edit_menu.php?id=<?= $p['id'] ?>"
-                       class="text-blue-600 hover:text-blue-800 font-medium">
+                  <td class="px-4 py-3 text-sm space-x-2">
+                    <a href="/gerente/edit_menu.php?id=<?= $p['id'] ?>"
+                       class="px-2 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-xs">
                       Editar
                     </a>
+                    <form method="POST" class="inline">
+                      <input type="hidden" name="action" value="delete">
+                      <input type="hidden" name="id" value="<?= $p['id'] ?>">
+                      <button
+                        type="submit"
+                        class="px-2 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-xs"
+                        onclick="return confirm('¿Estás seguro de eliminar este platillo?');"
+                      >
+                        Eliminar
+                      </button>
+                    </form>
                   </td>
                 </tr>
               <?php endforeach; ?>

@@ -11,7 +11,7 @@ require '../config/db.php';
 
 $id = $_GET['id'] ?? null;
 if (!$id) {
-    header('Location: menu.php');
+    header('Location: /gerente/menu.php');
     exit;
 }
 
@@ -28,7 +28,7 @@ $stmt = $pdo->prepare("
 $stmt->execute([$id]);
 $p = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$p) {
-    header('Location: menu.php');
+    header('Location: /gerente/menu.php');
     exit;
 }
 
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $activo,
                 $id
             ]);
-            header('Location: menu.php');
+            header('Location: /gerente/menu.php');
             exit;
         } catch (Exception $e) {
             $errors[] = 'Error al actualizar en base de datos: ' . $e->getMessage();
@@ -108,7 +108,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Editar Platillo - Gerente</title>
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 text-gray-800 pt-16">
@@ -249,7 +248,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Guardar Cambios
           </button>
           <a
-            href="menu.php"
+            href="/gerente/menu.php"
             class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
           >
             Cancelar

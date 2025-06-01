@@ -14,7 +14,7 @@ require '../config/db.php';
 
 $id = $_GET['id'] ?? null;
 if (!$id) {
-    header('Location: dashboard.php#gestion-personal');
+    header('Location: /gerente/personal.php');
     exit;
 }
 
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         $stmt = $pdo->prepare("UPDATE usuarios SET nombre = ?, rol = ? WHERE id = ?");
         $stmt->execute([$nombre, $rol, $id]);
-        header('Location: dashboard.php#gestion-personal');
+        header('Location: /gerente/personal.php');
         exit;
     }
 }
@@ -40,7 +40,7 @@ $stmt = $pdo->prepare("SELECT id, nombre, rol FROM usuarios WHERE id = ?");
 $stmt->execute([$id]);
 $e = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$e) {
-    header('Location: dashboard.php#gestion-personal');
+    header('Location: /gerente/personal.php');
     exit;
 }
 ?>
@@ -105,7 +105,7 @@ if (!$e) {
             Guardar Cambios
           </button>
           <a
-            href="dashboard.php#gestion-personal"
+            href="/gerente/personal.php"
             class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
           >
             Cancelar
