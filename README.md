@@ -1,4 +1,18 @@
 # Manager-Restaurante
+
+
+## 📚 Tabla de Contenido
+
+- [📖 Manual de Usuario](#manual-de-usuario)
+- [🗄️ Documentación de la Base de Datos](#documentación-de-la-base-de-datos)
+- [🧩 Casos de Uso](#casos-de-uso)
+- [🏗️ Diagramas de Clase](#diagramas-de-clase)
+- [🎨 Diseño](#diseño)
+- [📝 Requerimientos](#requerimientos)
+- [🎓 Manual de Capacitación](#manual-de-capacitación)
+
+---
+
 🚀 Instalación y Configuración
     Clona el repositorio dentro de la carpeta de tu servidor local:
 
