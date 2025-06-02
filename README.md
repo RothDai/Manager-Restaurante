@@ -3,13 +3,13 @@
 
 ## 📚 Tabla de Contenido
 
-- [📖 Manual de Usuario](#manual-de-usuario)
-- [🗄️ Documentación de la Base de Datos](#documentación-de-la-base-de-datos)
-- [🧩 Casos de Uso](#casos-de-uso)
-- [🏗️ Diagramas de Clase](#diagramas-de-clase)
-- [🎨 Diseño](#diseño)
-- [📝 Requerimientos](#requerimientos)
-- [🎓 Manual de Capacitación](#manual-de-capacitación)
+- [📖 Manual de Usuario](https://docs.google.com/document/d/1Dvp0cd15RI-we0PziBg0gDC31e2FcY2ddWNS92s2354/edit?usp=sharing)
+- [🗄️ Documentación de la Base de Datos](https://docs.google.com/document/d/1RaU1gad9mQC69lfkX2WcBfGdqdKWW8h6MZqmoTfuP_c/edit?usp=sharing)
+- [🧩 Casos de Uso](https://docs.google.com/document/d/14RPvU2MLxRvRc85gIQGYeqnKHrquCEvMgNIyAkO7rZ0/edit?usp=sharing)
+- [🏗️ Diagramas de Clase](https://docs.google.com/document/d/1nzWHJZXHsxvmYPf9gPcbLclBxtiiT9-yu2-uRjaQ_Q4/edit?usp=sharing)
+- [🎨 Diseño](https://docs.google.com/document/d/1LypPbvmPPfEW8P0qiIA8h6h5kIirQiP1zbga7PbogEY/edit?usp=sharing)
+- [📝 Requerimientos](https://docs.google.com/document/d/1Izq0plk2Mm_UR2h0HG7V4HXcY02aYJFeaoTI6-Gcpy0/edit?usp=sharing)
+- [🎓 Manual de Capacitación](https://docs.google.com/document/d/11TOHg2slYAQ8QR0EAwXxbaPaQJcxV30jZvy5qrI4V3s/edit?usp=sharing)
 
 ---
 
